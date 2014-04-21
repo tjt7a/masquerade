@@ -1,24 +1,24 @@
-top_srcdir = @top_srcdir@
-prefix = @prefix@
-exec_prefix = @exec_prefix@
-bindir = @bindir@
-mandir = @mandir@
+top_srcdir = .
+prefix = /usr/local
+exec_prefix = ${prefix}
+bindir = ${exec_prefix}/bin
+mandir = ${prefix}/share/man
 
-CC = @CC@
-CFLAGS  = @CFLAGS@ \
-	@GLIB_CFLAGS@ \
-	@GMP_CFLAGS@ \
-	@PBC_CFLAGS@ \
-	@BSWABE_CFLAGS@ \
-	@DEFS@
-LDFLAGS = @LDFLAGS@ \
-	@GLIB_LIBS@ \
-	@GMP_LIBS@ \
-	@PBC_LIBS@ \
-	@BSWABE_LIBS@ \
-	@LIBS@
+CC = gcc
+CFLAGS  = -O3 -Wall \
+	-I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include  \
+	 \
+	-I/usr/include/pbc -I/usr/local/include/pbc \
+	 \
+	-DPACKAGE_NAME=\"cpabe\" -DPACKAGE_TARNAME=\"cpabe\" -DPACKAGE_VERSION=\"0.11\" -DPACKAGE_STRING=\"cpabe\ 0.11\" -DPACKAGE_BUGREPORT=\"bethenco@cs.berkeley.edu\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_FCNTL_H=1 -DHAVE_STDDEF_H=1 -DHAVE_STRING_H=1 -DHAVE_STDLIB_H=1 -DHAVE_MALLOC=1 -DHAVE_VPRINTF=1 -DHAVE_LIBCRYPTO=1 -DHAVE_LIBCRYPTO=1 -DHAVE_STRCHR=1 -DHAVE_STRDUP=1 -DHAVE_MEMSET=1 -DHAVE_GMP=1 -DHAVE_PBC=1 -DHAVE_BSWABE=1
+LDFLAGS = -O3 -Wall \
+	-L/opt/local/lib -lglib-2.0 -lintl  \
+	-Wl,-rpath /usr/local/lib -lgmp \
+	-Wl,-rpath /usr/local/lib -lpbc \
+	-lbswabe \
+	-lcrypto -lcrypto 
 
-DISTNAME = @PACKAGE_TARNAME@-@PACKAGE_VERSION@
+DISTNAME = cpabe-0.11
 
 TARGETS  = cpabe-setup   cpabe-enc   cpabe-keygen   cpabe-dec	Masquerade
 DEVTARGS = test-lang TAGS
