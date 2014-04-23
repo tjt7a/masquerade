@@ -1,1 +1,1 @@
-../Masquerade.cc
+../src/Masquerade.cc
