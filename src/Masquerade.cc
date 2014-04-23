@@ -10,11 +10,7 @@
 #include "common.h"
 #include "policy_lang.h"
 
-char* usage =
-"Usage: \n
-For existing keyset file: Masquerade -k <keyset file>\n
-To create a new keyset file: Masquerade -n\n"
-"";
+char* usage ="Usage: \nFor existing keyset file: Masquerade -k <keyset file>\nTo create a new keyset file: Masquerade -n\n";
 
 char* keysetfile = "keyset.ks";
 
@@ -23,12 +19,12 @@ parse_args( int argc, char** argv )
 {
 
 	if(argc > 1){
-		if((!strcmp(argv[1], "-k") && !strcmp(argv[1], "--keyset"))
+		if(!strcmp(argv[1], "-k") && !strcmp(argv[1], "--keyset"))
 		{
 			if((!strcmp(argv[1], "-n") && !strcmp(argv[1], "--newkeyset")))
 			{
 				make_keyset();
-				return 0;
+				return;
 			}
 			
 			printf("%s", usage);
@@ -45,11 +41,11 @@ parse_args( int argc, char** argv )
 
 }
 
-bool
+int
 make_keyset(){
 
 	//char* 
-	return true;
+	return 1;
 }
 
 int main(int argc, char** argv){
