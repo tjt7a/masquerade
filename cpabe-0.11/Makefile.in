@@ -20,7 +20,7 @@ LDFLAGS = @LDFLAGS@ \
 
 DISTNAME = @PACKAGE_TARNAME@-@PACKAGE_VERSION@
 
-TARGETS  = cpabe-setup   cpabe-enc   cpabe-keygen   cpabe-dec	masquerade
+TARGETS  = cpabe-setup   cpabe-enc   cpabe-keygen   cpabe-dec	
 DEVTARGS = test-lang TAGS
 
 MANUALS  = $(TARGETS:=.1)
@@ -29,9 +29,6 @@ HTMLMANS = $(MANUALS:.1=.html)
 all: $(TARGETS) $(DEVTARGS)
 
 # user-level compilation
-
-masquerade: masquerade.o common.o
-	$(CC) -o $@ $^ $(LDFLAGS)
 
 cpabe-setup: setup.o common.o
 	$(CC) -o $@ $^ $(LDFLAGS)
