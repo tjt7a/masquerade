@@ -7,18 +7,18 @@
 #include <pbc_random.h>
 
 #include "bswabe.h"
-#include "common.h"
-#include "policy_lang.h"
+#include "../cpabe-0.11/common.h"
 
-char* usage ="Usage: \nFor existing keyset file: Masquerade -k <keyset file>\nTo create a new keyset file: Masquerade -n\n";
+const char* usage ="Usage: \nFor existing keyset file: Masquerade -k <keyset file>\nTo create a new keyset file: Masquerade -n\n";
 
-char* keysetfile = "keyset.ks";
+static char* keysetfile = "keyset.ks";
 
 void
 parse_args( int argc, char** argv )
 {
 
 	if(argc > 1){
+		// 
 		if(!strcmp(argv[1], "-k") && !strcmp(argv[1], "--keyset"))
 		{
 			if((!strcmp(argv[1], "-n") && !strcmp(argv[1], "--newkeyset")))
@@ -54,7 +54,7 @@ int main(int argc, char** argv){
 
 	char* keyset = suck_file_str(keysetfile); // Read keysetfile
 
-	//printf("%s", keyset);
+	printf("%s", keyset);
 
 	return 0;
 }
