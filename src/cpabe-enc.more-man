@@ -48,6 +48,6 @@ letter, and the keywords `and', `or', and `of' may not be used. Also,
 `&' and `|' are synonyms for `and' and `or'.
 
 [see also]
-.BR cpabe-setup (1),
+.BR cpabe-masquerade (1),
 .BR cpabe-keygen (1),
 .BR cpabe-dec (1)

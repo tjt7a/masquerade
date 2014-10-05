@@ -48,7 +48,11 @@ char*  pub_file = 0;
 char*  msk_file = 0;
 char** attrs    = 0;
 
+// Private key file
 char*  out_file = "priv_key";
+
+// We want to keep track of the attributes we use
+char* attributes_file = "attributes_file";
 
 gint
 comp_string( gconstpointer a, gconstpointer b)
@@ -82,6 +86,13 @@ parse_args( int argc, char** argv )
 				die(usage);
 			else
 				out_file = argv[i];
+		}
+		else if( !strcmp(argv[i], "-a") || !strcmp(argv[i], "--attributes"))
+		{
+			if(++i >= argc)
+				die(usage);
+			else
+				attributes_file = argv[i];
 		}
 		else if( !strcmp(argv[i], "-d") || !strcmp(argv[i], "--deterministic") )
 		{

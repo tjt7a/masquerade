@@ -18,6 +18,6 @@ Note the usage of date (1) as a convenient way of storing a time in a
 numerical attribute.
 
 [see also]
-.BR cpabe-setup (1),
+.BR cpabe-masquerade (1),
 .BR cpabe-enc (1),
 .BR cpabe-dec (1)
